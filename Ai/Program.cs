@@ -15,13 +15,9 @@ namespace Ai
 
             var Secret = config["apikey"];
             //Console.WriteLine(Secret);
-            var huggingface = new HuggingfaceApi(Secret);
-            var response = huggingface.Query("What is the capital of France?").Result;
+            IHuggingFaceClient huggingFace = new HuggingFaceClient(Secret);
+            var response = huggingFace.Query("What is the capital of France?").Result;
             Console.WriteLine(response);
         }
-
-
-
-
     }
 }

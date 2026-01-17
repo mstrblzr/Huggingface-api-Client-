@@ -6,13 +6,13 @@ using System.Net.Http.Headers;
 using System.IO;
 namespace Ai
 {
-    public class HuggingfaceApi : HuggingfaceInterface
+    public class HuggingFaceClient : IHuggingFaceClient
     {
 
         private string token { get; set; } 
         private string url = "https://router.huggingface.co/v1/chat/completions";
 
-        public HuggingfaceApi(string api)
+        public HuggingFaceClient(string api)
         {
             token = api;
 

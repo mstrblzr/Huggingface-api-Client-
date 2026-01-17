@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Ai
 {
-    public interface HuggingfaceInterface
+    public interface IHuggingFaceClient
     {
         public Task<string> Query(string query);
     }
