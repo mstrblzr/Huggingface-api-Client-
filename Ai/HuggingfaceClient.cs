@@ -4,23 +4,24 @@ using System.Text;
 using System.Text.Json;
 using System.Net.Http.Headers;
 using System.IO;
-namespace Ai
+namespace HuggingFaceApiClient
 {
     public class HuggingFaceClient : IHuggingFaceClient
     {
 
-        private string token { get; set; } 
+        private string token;
         private string url = "https://router.huggingface.co/v1/chat/completions";
+        private HttpClient http;
 
-        public HuggingFaceClient(string api)
+        public HuggingFaceClient(string apikey, HttpClient http)
         {
-            token = api;
-
+            token = apikey;
+            this.http = http;
         }
         public async Task<string> Query(string query)
 
         {
-            using var client = new HttpClient();
+            var client = http;
             // Setup headers
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var payload = new

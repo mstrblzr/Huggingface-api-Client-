@@ -3,7 +3,7 @@ using System.Text.Json;
 using System.Net.Http.Headers;
 using Microsoft.Extensions.Configuration;
 
-namespace Ai
+namespace HuggingFaceApiClient
 {
     public class Program
     {
@@ -14,8 +14,10 @@ namespace Ai
             .Build();
 
             var Secret = config["apikey"];
-            //Console.WriteLine(Secret);
-            IHuggingFaceClient huggingFace = new HuggingFaceClient(Secret);
+
+            HttpClient httpClient = new HttpClient();
+           
+            IHuggingFaceClient huggingFace = new HuggingFaceClient(Secret, httpClient);
             var response = huggingFace.Query("What is the capital of France?").Result;
             Console.WriteLine(response);
         }
