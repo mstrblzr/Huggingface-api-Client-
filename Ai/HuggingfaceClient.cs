@@ -57,9 +57,9 @@ namespace HuggingFaceApiClient
                 if (response.IsSuccessStatusCode)
                 {
                     // save the full response to a json file for debugging 
-                    var options = new JsonSerializerOptions { WriteIndented = true };
-                    string jsonString = JsonSerializer.Serialize(doc, options);
-                    File.WriteAllText("Queryresponse.json", jsonString);
+                    //var options = new JsonSerializerOptions { WriteIndented = true };
+                    //string jsonString = JsonSerializer.Serialize(doc, options);
+                    //File.WriteAllText("Queryresponse.json", jsonString);
 
                     return finalAnswer;
                 }
